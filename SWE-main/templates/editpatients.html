@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <title>CRUD OPERATION WITH POSTGRESQL</title>
+</head>
+<body>
+    <center>
+        <h1>UPDATE PATIENT INFORMATION</h1>
+        <h3>DJANGO TUTORIALS</h3>
+        <hr/>
+        <form method="POST" action = "/UpdatePatient/{{EmpModel.id}}">
+            {% csrf_token %}
+        
+        <table border="1">
+           <tr>
+                <td>Patient Id</td>
+                <td><input type="text" name="id" value="{{EmpModel.id}}" readonly></td>
+            </tr>
+                <td>dateOfBirth</td>
+                <td><input type="text" name="dateofbirth" value="Enter in format of YY-MM-DD"></td>
+            </tr>
+            <tr>
+                <td>IIN</td>
+                <td><input type="text" name="iin" value="{{EmpModel.iin}}"></td>
+            </tr>
+            <tr>
+                <td>Full Name</td>
+                <td><input type="text" name="fullname" value="{{EmpModel.fullname}}"></td>
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td><input type="text" name="bloodgroup" value="{{EmpModel.bloodgroup}}"></td>
+            </tr>
+            <tr>
+                <td>Emergency contact number</td>
+                <td><input type="text" name="emergency_number" value="{{EmpModel.emergency_number}}"></td>
+            </tr>
+            <tr>
+                <td>Contact number</td>
+                <td><input type="text" name="contact" value="{{EmpModel.contact}}"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" name="address" value="{{EmpModel.address}}"></td>
+            </tr>
+            <tr>
+                <td>Marital Status</td>
+                <td><input type="text" name="marital" value="{{EmpModel.marital}}"></td>
+            </tr>
+            <tr>
+                <td>Registration Date</td>
+                <td><input type="text" name="registration" value="Enter in format of YY-MM-DD"></td>
+            </tr>
+           
+            <tr>
+                <td><input type="submit" value="Update Record"></td>
+                <td>
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style ="color:green">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <a href = "{% url 'showemp' %}">Home page</a>
+
+    </form>
+
+    </center>
+</body>
+</html>

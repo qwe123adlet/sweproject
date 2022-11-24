@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+    <title>DOCTOR TABLE</title>
+</head>
+<body>
+    <center>
+        <h1>DOCTOR TABLE</h1>
+        <table border="1">
+            <h3>DOCTOR TABLE</h3>
+
+            <tr>
+            <tr>
+                <th>ID</th>
+                <th>Doctor Name</th>
+                <th>Date of Birth</th>
+                <th>IIN</th>
+                <th>Contact Number</th>
+                <th>Department ID</th>
+                <th>Specilization ID</th>
+                <th>Experience</th>
+                <th>Photo</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Schedule</th>
+                <th>Education</th>
+                <th>Rating</th>
+                <th>Address</th>
+                <th>Photo_2</th>
+            </tr>
+            {% for result in data %}
+            <tr>
+                <td>{{result.id}}</td>
+                <td>{{result.empname}}</td>
+                <td>{{result.dateofbirth}}</td>
+                <td>{{result.iin}}</td>
+                <td>{{result.contact}}</td>
+                <td>{{result.departmentid}}</td>
+                <td>{{result.specializationid}}</td>
+                <td>{{result.experience}}</td>
+                <td>{{result.photo}}</td>
+                <td>{{result.category}}</td>
+                <td>{{result.price}}</td>
+                <td>{{result.schedule}}</td>
+                <td>{{result.education}}</td>
+                <td>{{result.rating}}</td>
+                <td>{{result.address}}</td>
+                <td><img src="https://image.shutterstock.com/image-vector/user-icon-vector-260nw-249026119.jpg" width = "150"></td>
+
+
+            </tr>
+            
+            {% endfor %}
+</body>
+</html>

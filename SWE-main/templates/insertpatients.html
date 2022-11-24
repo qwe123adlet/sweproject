@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <title>CREATE NEW PATIENT</title>
+</head>
+<body>
+    <center>
+        <h1>CREATE NEW PATIENT USER</h1>
+        <hr/>
+        <form method = "POST">
+            {% csrf_token %}
+        <table border="1">
+           
+            <tr>
+                <td>Date of Birth</td>
+                <td><input type="text" placeholder="Enter Date of Birth name.." name="dateofbirth"></td>
+            </tr>
+           
+            <tr>
+                <td>IIN</td>
+                <td><input type="text" placeholder="Enter IIN.." name="iin"></td>
+            </tr>
+            <tr>
+                <td>Full Name</td>
+                <td><input type="text" placeholder="Enter Full Name.." name="fullname"></td>
+            </tr>
+            <tr>
+                <td>Blood Group</td>
+                <td><input type="text" placeholder="Enter Blood Group.." name="bloodgroup"></td>
+            </tr>
+            <tr>
+                <td>Emergency contact number</td>
+                <td><input type="text" placeholder="Enter emergency contact number.." name="emergency_number"></td>
+            </tr>
+            <tr>
+                <td>Contact number</td>
+                <td><input type="text" placeholder="Enter contact number.." name="contact"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" placeholder="Enter address.." name="address"></td>
+            </tr>
+            <tr>
+                <td>Marital Status</td>
+                <td><input type="text" placeholder="Enter marital status.." name="marital"></td>
+            </tr>
+            <tr>
+                <td>Registration Date</td>
+                <td><input type="text" placeholder="Enter Registration Date.." name="registration"></td>
+            </tr>
+           
+            <tr>
+                <td><input type="submit" name="INSERT"/>
+                <td> {% if messages %}
+                    {% for mess in messages %}
+                    <b style ="color:green">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}</td>
+            </tr>
+        </table>
+
+        <a href = "{% url 'showemp' %}">Home page</a>
+       
+    </form>
+    </center>
+</body>
+</html>

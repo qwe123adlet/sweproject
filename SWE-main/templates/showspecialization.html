@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>DOCTOR TABLE</title>
+</head>
+<body>
+    <center>
+        <h2>Specialization table</h2>
+        <table border="1">
+            <tr>
+            <tr>
+                <th>Specilization ID</th>
+            </tr>
+            {% for result in data %}
+            <tr>
+                <td>{{result.specializationid}}</td>
+            </tr>
+            {% endfor %}
+</body>
+</html>

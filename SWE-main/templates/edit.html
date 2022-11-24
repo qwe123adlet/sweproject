@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<head>
+    <title></title>
+</head>
+<body>
+    <center>
+        <h1>UPDATE DOCTOR INFORMATION</h1>
+     
+        <hr/>
+        <form method="POST" action = "/Update/{{EmpModel.id}}">
+            {% csrf_token %}
+        
+        <table border="1">
+           <tr>
+                <td>Doctor Id</td>
+                <td><input type="text" name="id" value="{{EmpModel.id}}" readonly></td>
+            </tr>
+            <tr>
+                <td>Doctor name</td>
+                <td><input type="text" name="empname" value="{{EmpModel.empname}}"></td>
+            </tr>
+                <td>dateOfBirth</td>
+                <td><input type="text" name="dateofbirth" value=""></td>
+            </tr>
+            <tr>
+                <td>IIN</td>
+                <td><input type="text" name="iin" value="{{EmpModel.iin}}"></td>
+            </tr>
+            <tr>
+                <td>contact</td>
+                <td><input type="text" name="contact" value="{{EmpModel.contact}}"></td>
+            </tr>
+            <tr>
+                <td>departmentID</td>
+                <td><input type="text" name="departmentid" value="{{EmpModel.departmentid}}"></td>
+            </tr>
+            <tr>
+                <td>specializationID</td>
+                <td><input type="text" name="specializationid" value="{{EmpModel.specializationid}}"></td>
+            </tr>
+            <tr>
+                <td>experience</td>
+                <td><input type="text" name="experience" value="{{EmpModel.experience}}"></td>
+            </tr>
+            <tr>
+                <td>photo</td>
+                <td><input type="text" name="photo" value="{{EmpModel.photo}}"></td>
+            </tr>
+            <tr>
+                <td>category</td>
+                <td><input type="text" name="category" value="{{EmpModel.category}}"></td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td><input type="text" name="price" value="{{EmpModel.price}}"></td>
+            </tr>
+            <tr>
+                <td>schedule</td>
+                <td><input type="text" name="schedule" value="{{EmpModel.schedule}}"></td>
+            </tr>
+            <tr>
+                <td>education</td>
+                <td><input type="text" name="education" value="{{EmpModel.education}}"></td>
+            </tr>
+            <tr>
+                <td>rating</td>
+                <td><input type="text" name="rating" value="{{EmpModel.rating}}"></td>
+            </tr>
+            <tr>
+                <td>address</td>
+                <td><input type="text" name="address" value="{{EmpModel.address}}"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Update Record"></td>
+                <td>
+                    {% if messages %}
+                    {% for mess in messages %}
+                    <b style ="color:green">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <a href = "{% url 'showemp' %}">Home page</a>
+
+    </form>
+
+    </center>
+</body>
+</html>
