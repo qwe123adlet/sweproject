@@ -105,22 +105,14 @@ def delpatient(request,id):
 def searchbar(request):
     if request.method == 'GET':
         search = request.GET.get('search')
-        post = EmpModel.objects.all().filter(empname__contains=search)
-        education_search = request.GET.get('search')
-        post1 = EmpModel.objects.all().filter(empname__contains=education_search)
-        specialization_search = request.GET.get('search')
-        post2 = EmpModel.objects.all().filter(empname__contains=specialization_search)
-        return render(request, 'searchbar.html', {"post": post,"post1":post1,"post2":post2})
+        post = EmpModel.objects.all().filter(empname__contains = search)
+        if(post):
+            return render(request, 'searchbar.html', {"post": post})
+        post1 = EmpModel.objects.all().filter(specializationid__contains = search)
+        return render(request, 'searchbar.html', {"post1": post1})
 
-def searchbarproc(request):
+def search(request):
     if request.method == 'GET':
         search = request.GET.get('search')           
         post = EmpModel.objects.all().filter(education=search)
         return render(request, 'searchbarProc.html', {"post": post})
-        
-
-def searchbarspec(request):
-    if request.method == 'GET':
-        search = request.GET.get('search')
-        post = EmpModel.objects.all().filter(specializationid=search)
-        return render(request, 'searchbarSpec.html', {"post": post})
