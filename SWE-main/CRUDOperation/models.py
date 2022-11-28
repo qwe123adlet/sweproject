@@ -3,6 +3,13 @@ from statistics import mode
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+class SpecType(models.Model):
+    specializationid = models.CharField(max_length = 100)
+    specialization = models.CharField(max_length = 100)
+
+    class Meta:
+        db_table = "specializationtype"
+
 class EmpModel(models.Model):
     empname = models.CharField(max_length=100)
     dateofbirth = models.DateField(max_length = 100)
@@ -18,9 +25,6 @@ class EmpModel(models.Model):
     education = models.CharField(max_length=100)
     rating = models.IntegerField()
     address = models.CharField(max_length=100)
-
-    def snipet(self):
-        return self.price + '...'
 
     class Meta:
         db_table = "employee"

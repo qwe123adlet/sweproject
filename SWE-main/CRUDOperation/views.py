@@ -1,9 +1,10 @@
 from django.shortcuts import redirect, render
-from CRUDOperation.models import EmpModel, Patient
+from CRUDOperation.models import EmpModel, Patient, SpecType
 from django.contrib import messages
 from CRUDOperation.forms import Empforms, PatientForms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.core.paginator import Paginator
 
 
 def editpatient(request,id):
@@ -39,18 +40,18 @@ def insertpatient(request):
     else:
         return render(request, 'insertpatients.html')
  
-def doctortable(request):
-    showdoctors = EmpModel.objects.all()
-    return render(request,'doctortable.html',{"data":showdoctors})
-
-def showspecialization(request):
-    spec = EmpModel.objects.all()
-    return render(request, 'showspecialization.html',{"data":showspecialization})
 
 def showemp(request):
     showall = EmpModel.objects.all()
     showallpatients = Patient.objects.all()
-    return render(request,'index.html',{"data":showall, "patdata":showallpatients})
+
+    paginator = Paginator(showall, 2)
+
+    page_number = request.GET.get('page')
+    data = paginator.get_page(page_number)
+    return render(request,'index.html',{"data":data, "patdata":showallpatients})
+
+
 
 def insertemp(request):
     if request.method == "POST":
@@ -102,6 +103,18 @@ def delpatient(request,id):
     showdata = Patient.objects.all()
     return render(request, "deletepatients.html", {"data":showdata})
 
+def doctortableSpec(request,id):
+    showdoctors = EmpModel.objects.all().filter(specializationid=id)
+    return render(request, 'doctortableSpec.html',{"data":showdoctors})    
+
+def doctortable(request, id):
+    showdoctors = EmpModel.objects.all().filter(id=id)
+    return render(request,'doctortable.html',{"data":showdoctors})
+
+def showspecialization(request):
+    showdoctors = SpecType.objects.all()
+    return render(request, 'showspecialization.html',{"data":showdoctors})
+
 def searchbar(request):
     if request.method == 'GET':
         search = request.GET.get('search')
@@ -110,9 +123,3 @@ def searchbar(request):
             return render(request, 'searchbar.html', {"post": post})
         post1 = EmpModel.objects.all().filter(specializationid__contains = search)
         return render(request, 'searchbar.html', {"post1": post1})
-
-def search(request):
-    if request.method == 'GET':
-        search = request.GET.get('search')           
-        post = EmpModel.objects.all().filter(education=search)
-        return render(request, 'searchbarProc.html', {"post": post})

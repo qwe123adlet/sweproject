@@ -24,10 +24,8 @@ from django.views.generic.base import TemplateView # new
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'),  # new
-    path('searchbar/', views.searchbar, name="searchbar"),
     path('accounts/', include("django.contrib.auth.urls")),
     path('admin/', admin.site.urls),
-    path('doctortable/', views.doctortable, name = "doctortable"),
     path('something/',views.showemp, name = "showemp"),
     path('something/Insert',views.insertemp,name="insertemp"),
     path('something/InsertPatient', views.insertpatient, name="insertpatient"),
@@ -38,4 +36,7 @@ urlpatterns = [
     path('something/DeletePatient/<int:id>', views.delpatient, name="delpatient"),
     path('something/Delete/<int:id>', views.delemp, name="delemp"),
     path('showspecialization/',views.showspecialization,name="showspecialization"),
+    path('showspecialization/doctortableSpec/<int:id>', views.doctortableSpec, name = "doctortableSpec"),
+    path('searchbar/', views.searchbar, name="searchbar"),
+    path('doctortable/<int:id>', views.doctortable, name = "doctortable"),
 ]

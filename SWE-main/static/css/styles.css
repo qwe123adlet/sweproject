@@ -1,0 +1,41 @@
+
+
+.main{
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.bottom{
+  position: absolute;
+  bottom: -15;
+  right: 25px;
+}
+
+.btn-primary{
+  float: right;
+}
+
+h3{
+  margin-top: 50px;
+  position: relative;
+}
+table{
+    border: white;
+    margin-left: 25px;
+    margin-right: 25px;
+    max-width: fit-content;
+    margin-bottom: 50px;
+}
+
+  th,
+  td {
+      width: 150px;
+    text-align: center;
+  }
+  .container{
+    margin-left: 0;
+  }
+#exit{
+    margin: 25px;
+    text-align: left;
+}

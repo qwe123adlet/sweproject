@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <head>
-    <title>DOCTOR TABLE</title>
+    <title>SPECIALIZATION TABLE</title>
 </head>
+<form method = "GET" action="{% url 'searchbar' %}">
+    <input type ="text" name = "search">
+    <button type ="submit">Search</button>    
+  </form>
 <body>
-    <center>
-        <h2>Specialization table</h2>
         <table border="1">
+            <h3>SPECIALIZATION TABLE</h3>
             <tr>
             <tr>
-                <th>Specilization ID</th>
+                <th>SpecializationID</th>
+                <th>Specialization</th>
+                <th>Table with doctors</th>
             </tr>
             {% for result in data %}
             <tr>
                 <td>{{result.specializationid}}</td>
+                <td>{{result.specialization}}</td>
+                <td><a href="doctortableSpec/{{result.id}}">Check doctors</a></td>
             </tr>
+            
             {% endfor %}
 </body>
 </html>
