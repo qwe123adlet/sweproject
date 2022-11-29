@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <title>Make an Appointment</title>
+</head>
+<body>
+    <center>
+        <h1>Make a new appointment</h1>
+        <hr/>
+        <form method = "POST">
+            {% csrf_token %}
+        <table border="1">
+           
+            <tr>
+                <td>Full name of the patient</td>
+                
+                    
+                <td><input type="text" placeholder="Enter name" name="fullname"></td>
+            
+            </tr>
+           
+            <tr>
+                <td>Date chedule</td>
+                <td><input type="date" placeholder="Appointment date" name="app_date"></td>
+            </tr>
+            <tr>
+                <td>Specialization ID</td>
+                
+                 
+                <td><input type="text" placeholder="Specialization" name="specializationid"></td>
+        
+            </tr>
+            <tr>
+                <td>Full name of the doctor</td>
+                  
+                <td><input type="text" placeholder="Doctor name" name="empname"></td>
+
+            </tr>
+            <tr>
+                <td>Contact of the patient</td>
+                    
+                <td><input type="text" placeholder="Contact" name="contact"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="INSERT"/>
+                <td> {% if messages %}
+                    {% for mess in messages %}
+                    <b style ="color:green">{{mess}}</b>
+                    {% endfor %}
+                    {% endif %}</td>
+            </tr>
+        </table>
+
+        <a href = "{% url 'showspecialization' %}">Home page</a>
+       
+    </form>
+    </center>
+</body>
+</html>

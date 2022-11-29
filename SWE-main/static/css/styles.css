@@ -1,8 +1,9 @@
-
-
 .main{
   position: relative;
   margin-bottom: 100px;
+}
+body{  
+  position: relative;
 }
 
 .bottom{
@@ -20,22 +21,127 @@ h3{
   position: relative;
 }
 table{
-    border: white;
+    /* border: white; */
     margin-left: 25px;
     margin-right: 25px;
     max-width: fit-content;
     margin-bottom: 50px;
 }
-
+.tables{
+  margin-top: 3%;
+}
   th,
   td {
       width: 150px;
     text-align: center;
   }
-  .container{
+
+.container{
     margin-left: 0;
-  }
+}
+
 #exit{
-    margin: 25px;
-    text-align: left;
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+.btn-info{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+#editp{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  bottom: -10%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+#insertp{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  bottom: -20%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+header{
+  position: relative;
+}
+#search{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+#hdshow{
+  margin-bottom: 5%;
+  text-align: center;
+}
+.show{
+  margin-top: 10px;
+}
+
+
+#bodyempt{
+  position: relative;
+  background-image: url("/static/img/empty.png");;
+}
+#empty{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#showspec{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  bottom: -10%;
+  right: 0;
+  transform: translate(-50%, -50%);  
+}
+
+#error{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
+}
+#butn{
+  max-width: fit-content;
+  text-align: center;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  transform: translate(-50%, -50%);  
+}
+.pagination{
+  margin-bottom: 3%;
+  margin-left: 45%;
+}
+#checkdoc{
+  padding: 2px 6px;
 }

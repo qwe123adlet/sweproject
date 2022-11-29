@@ -2,9 +2,13 @@
     margin: 0;
     padding: 0;
 }
+
 body{
     color:aqua;
     background-image: url("/static/img/login1.jpg");
+}
+header{
+    margin-left: 10px;
 }
 
 .container {
@@ -20,4 +24,28 @@ body{
     transform: translate(-50%, -50%);
 }
 
+.container1 {
+    /* box-shadow: 0 0 10px black; */
+    max-width: fit-content;
+    text-align: center;
+    height: fit-content;
+    /* border: 1px solid black; */
+    /* background-color: rgb(70, 66, 66); */
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+}
 
+.container2 {
+    /* box-shadow: 0 0 10px black; */
+    max-width: fit-content;
+    text-align: center;
+    height: fit-content;
+    /* border: 1px solid black; */
+    /* background-color: rgb(70, 66, 66); */
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+}

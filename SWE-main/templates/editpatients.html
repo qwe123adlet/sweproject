@@ -1,16 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <head>
     <title>CRUD OPERATION WITH POSTGRESQL</title>
+    <link rel="stylesheet" href="{% static 'CRUDOperation/css/bootstrap.css' %}">    
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/styles.css' %}">
+
 </head>
 <body>
     <center>
-        <h1>UPDATE PATIENT INFORMATION</h1>
-        <h3>DJANGO TUTORIALS</h3>
-        <hr/>
+        <header>
+            <nav id="header-nav" class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <div class="container" align="left">
+                  <div class="navbar-header">
+                        <h1>UPDATE PATIENT INFORMATION</h1>
+                    </div></div></nav>
+                </header>
+                <div class="tables">
+        
         <form method="POST" action = "/UpdatePatient/{{EmpModel.id}}">
             {% csrf_token %}
         
-        <table border="1">
+        <table border="1" class="table table-striped table-bordered">
            <tr>
                 <td>Patient Id</td>
                 <td><input type="text" name="id" value="{{EmpModel.id}}" readonly></td>
@@ -52,7 +62,7 @@
             </tr>
            
             <tr>
-                <td><input type="submit" value="Update Record"></td>
+                <td><input type="submit" value="Update Record" class="btn btn-success"></td>
                 <td>
                     {% if messages %}
                     {% for mess in messages %}
@@ -62,10 +72,10 @@
                 </td>
             </tr>
         </table>
-        <a href = "{% url 'showemp' %}">Home page</a>
+        <a href = "{% url 'showemp' %}"  class="btn btn-info" id="editp">Back</a>
 
     </form>
-
+    </div>
     </center>
 </body>
 </html>

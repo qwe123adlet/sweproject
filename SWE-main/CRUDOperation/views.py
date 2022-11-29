@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from CRUDOperation.models import EmpModel, Patient, SpecType
+from CRUDOperation.models import *
 from django.contrib import messages
 from CRUDOperation.forms import Empforms, PatientForms
 from django.contrib.auth.forms import UserCreationForm
@@ -49,7 +49,12 @@ def showemp(request):
 
     page_number = request.GET.get('page')
     data = paginator.get_page(page_number)
-    return render(request,'index.html',{"data":data, "patdata":showallpatients})
+
+    paginator1 = Paginator(showallpatients, 2)
+
+    page_number1 = request.GET.get('page1')
+    patdata = paginator1.get_page(page_number1)
+    return render(request,'index.html',{"data":data, "patdata":patdata})
 
 
 
@@ -118,8 +123,26 @@ def showspecialization(request):
 def searchbar(request):
     if request.method == 'GET':
         search = request.GET.get('search')
-        post = EmpModel.objects.all().filter(empname__contains = search)
+        post = EmpModel.objects.all().filter(empname__icontains = search)
         if(post):
             return render(request, 'searchbar.html', {"post": post})
-        post1 = EmpModel.objects.all().filter(specializationid__contains = search)
-        return render(request, 'searchbar.html', {"post1": post1})
+        post1 = EmpModel.objects.all().filter(specializationid__icontains = search)
+        if(post1):
+            return render(request, 'searchbar.html', {"post1": post1})
+        post2 = EmpModel.objects.all().filter(category__icontains = search)
+        return render(request, 'searchbar.html', {"post2": post2})
+
+def makeappointment(request):
+    if request.method == "POST":
+        if request.POST.get('fullname') and request.POST.get('app_date') and request.POST.get('specializationid') and request.POST.get('empname') and request.POST.get('contact'):
+            saverecord = Appointment()
+            saverecord.fullname = request.POST.get('fullname')
+            saverecord.app_date = request.POST.get('app_date')
+            saverecord.specializationid = request.POST.get('specializationid')
+            saverecord.empname = request.POST.get('empname')
+            saverecord.contact = request.POST.get('contact')
+            saverecord.save()
+            messages.success(request, "Appointment for name " + saverecord.fullname + " has been added successfully")
+            return render(request,'appointment.html')
+    else:
+        return render(request, 'appointment.html')

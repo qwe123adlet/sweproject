@@ -1,14 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <head>
     <title>CREATE NEW PATIENT</title>
+    <link rel="stylesheet" href="{% static 'CRUDOperation/css/bootstrap.css' %}">    
+    <link rel="stylesheet"  type="text/css" href="{% static 'css/styles.css' %}">
+
 </head>
 <body>
     <center>
-        <h1>CREATE NEW PATIENT USER</h1>
-        <hr/>
+        <header>
+            <nav id="header-nav" class="navbar navbar-light" style="background-color: #e3f2fd;">
+                <div class="container" align="left">
+                  <div class="navbar-header">
+                        <h1>CREATE NEW PATIENT USER</h1>
+                    </div></div></nav>
+                </header>
+                <div class="tables">
+        
         <form method = "POST">
             {% csrf_token %}
-        <table border="1">
+        <table border="1" class="table table-striped table-bordered">
            
             <tr>
                 <td>Date of Birth</td>
@@ -49,7 +60,7 @@
             </tr>
            
             <tr>
-                <td><input type="submit" name="INSERT"/>
+                <td><input type="submit" name="INSERT" class="btn btn-success" />
                 <td> {% if messages %}
                     {% for mess in messages %}
                     <b style ="color:green">{{mess}}</b>
@@ -58,7 +69,7 @@
             </tr>
         </table>
 
-        <a href = "{% url 'showemp' %}">Home page</a>
+        <a href = "{% url 'showemp' %}" class="btn btn-info" id="insertp">Back</a>
        
     </form>
     </center>

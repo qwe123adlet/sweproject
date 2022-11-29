@@ -15,6 +15,7 @@
                   <div class="navbar-header">
            <h1>HOSPITAL MANAGEMENT SYSTEM</h1>
         <h2>WRITTEN BY GROUP 4</h2>
+        <p id = "exit"><a href="{% url 'logout' %}" class="btn btn-danger">Log Out</a></p>
     </div></div></nav>
 </header>
 
@@ -135,8 +136,23 @@
         <a href = "{% url 'insertpatient' %}" class="btn btn-primary">Create New Patient</a>
         </div>
     </div>
+    
+    <div class="pagination">
+        <span class="step-links">
+            {% if patdata.has_previous %}
+                <a href="?page1=1">&laquo; first</a>
+                <a href="?page1={{ patdata.previous_page_number }}">{{ patdata.previous_page_number }}</a>
+            {% endif %}
+            <span class="current">
+                Page {{ patdata.number }} of {{ patdata.paginator.num_pages }}
+            </span>
+            {% if patdata.has_next %}
+                <a href="?page1={{ patdata.next_page_number }}">{{ patdata.next_page_number }}</a>
+                <a href="?page1={{ patdata.paginator.num_pages }}">last &raquo;</a>
 
-        <p id = "exit"><a href="{% url 'logout' %}" class="btn btn-danger">Log Out</a></p>
+            {% endif %}
+        </span>
+    </div>
 
     </center>
 </body>

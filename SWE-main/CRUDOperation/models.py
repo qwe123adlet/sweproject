@@ -44,5 +44,13 @@ class Patient(models.Model):
     class Meta:
         db_table = "patient"
 
+class Appointment(models.Model):
+    fullname = models.CharField(max_length=100)
+    app_date = models.DateField(max_length=100)
+    specializationid = models.CharField(max_length=100)
+    empname = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
 
+    class Meta:
+        db_table = "appointment"
 
